@@ -49,37 +49,37 @@ export const Header = () => {
 
             {/* Logo */}
             <button
-  onClick={() => scrollToSection("home")}
-  aria-label="Go to Home"
-  className="flex items-center space-x-3 group"
->
-  {/* Profile Image with gradient ring on hover */}
-  <div className="relative">
-    <img
-      src={profileData.profileImage}
-      alt={profileData.name}
-      className="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-lg transition-all duration-300 group-hover:ring-purple-600"
-    />
-    {/* Optional subtle hover effect behind the ring */}
-    <div className="absolute -inset-1 rounded-full border-2 border-transparent group-hover:border-gradient-to-r from-indigo-600 to-cyan-500 pointer-events-none" />
-  </div>
+              onClick={() => scrollToSection("home")}
+              aria-label="Go to Home"
+              className="flex items-center space-x-3 group"
+            >
+              {/* Profile Image with gradient ring on hover */}
+              <div className="relative">
+                <img
+                  src={profileData.profileImage}
+                  alt={profileData.name}
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-lg transition-all duration-300 group-hover:ring-purple-600"
+                />
+                {/* Optional subtle hover effect behind the ring */}
+                <div className="absolute -inset-1 rounded-full border-2 border-transparent group-hover:border-gradient-to-r from-indigo-600 to-cyan-500 pointer-events-none" />
+              </div>
 
-  {/* Name and Title */}
-  <div className="flex flex-col">
-    <span className="text-xl sm:text-2xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
-      {profileData.name}
-    </span>
-    <span className="text-xs text-gray-500 font-medium tracking-wide">
-      {profileData.title}
-    </span>
+              {/* Name and Title */}
+              <div className="flex flex-col">
+                <span className="text-xl sm:text-2xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
+                  {profileData.name}
+                </span>
+                <span className="text-xs text-gray-500 font-medium tracking-wide">
+                  {profileData.title}
+                </span>
 
-    {/* Gradient Underline (visible on hover) */}
-    <div className="mt-1 w-0 h-1 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-full transition-all duration-300 group-hover:w-full" />
-  </div>
+                {/* Gradient Underline (visible on hover) */}
+                <div className="mt-1 w-0 h-1 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-full transition-all duration-300 group-hover:w-full" />
+              </div>
 
-  {/* Sparkle Icon */}
-  <Sparkles className="w-4 h-4 text-indigo-400 opacity-30 animate-pulse" />
-</button>
+              {/* Sparkle Icon */}
+              <Sparkles className="w-4 h-4 text-indigo-400 opacity-30 animate-pulse" />
+            </button>
 
             {/* Desktop Nav */}
             <div className="hidden lg:block">
@@ -168,6 +168,7 @@ export const Header = () => {
             <img
               src={profileData.profileImage}
               alt={profileData.name}
+              loading="lazy"
               className="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-lg"
             />
             <div>

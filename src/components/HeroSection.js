@@ -119,11 +119,11 @@ export const HeroSection = () => {
                             {/* Profile Card */}
                             <div className="relative w-80 h-96 rounded-3xl shadow-2xl bg-white/90 backdrop-blur-xl flex flex-col items-center justify-center p-8 border border-white/50 hover:border-indigo-200 transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1">
                                 {/* Profile Image */}
-                                <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-2xl ring-4 ring-white group-hover:ring-indigo-200 transition-transform duration-500 transform group-hover:scale-110">
+                                <div className="relative w-36 h-36 rounded-full shadow-2xl ring-4 ring-white group-hover:ring-indigo-200 transition-transform duration-500 transform group-hover:scale-110">
                                     <img
                                         src={profileData.profileImage}
                                         alt={profileData.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover rounded-full"
                                         loading="lazy"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/20"></div>
