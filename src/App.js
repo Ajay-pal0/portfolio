@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Header } from "./components/Header";
 import { Loading } from "./components/Loading";
+import { Footer } from "./components/Footer";
 
 const HeroSection = lazy(() => import("./components/HeroSection").then(m => ({ default: m.HeroSection })));
 const AboutSection = lazy(() => import("./components/AboutSection").then(m => ({ default: m.AboutSection })));
@@ -23,12 +24,7 @@ export default function App() {
           <ContactSection />
         </Suspense>
       </main>
-      <footer className="py-4 bg-gray-100 dark:bg-gray-800 text-center text-gray-600 dark:text-gray-400">
-        <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} Ajay Pal. All rights reserved.</p>
-          <p className="mt-2 text-sm">Built with React and Tailwind CSS</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
