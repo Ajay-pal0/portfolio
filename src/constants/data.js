@@ -1,5 +1,6 @@
 import { links } from "./links";
 import profileImage from '../assets/images/profile.jpg';
+import { calculateExperienceYears } from '../utils/utils';
 import { FaReact, FaJs, FaPython, FaCode, FaCertificate } from "react-icons/fa";
 import { Code, Database, BarChart3, Settings, Server, Smartphone, Home, User, Briefcase, Mail, Code2 } from "lucide-react";
 
@@ -11,7 +12,7 @@ export const profileData = {
     location: "Airoli, Navi Mumbai, India",
     github: links.github,
     linkedin: links.linkedin,
-    summary: `Results-driven Software Developer with 3+ years of experience in building performant,
+    summary: `Results-driven Software Developer with ${calculateExperienceYears()} years of experience in building performant,
             scalable, and user-centric web and mobile applications. Specializes in modern frontend
             frameworks like React.js and React Native, with strong proficiency in Tailwind CSS and Material UI.`,
     profileImage: profileImage,
@@ -27,10 +28,10 @@ export const heroData = {
         "React & React Native Expert"
     ],
     badgeText: "Available for new opportunities",
-    description: "Results-driven Software Developer with 3+ years of experience building performant, scalable, and user-focused applications.",
+    description: `Results-driven Software Developer with ${calculateExperienceYears()} years of experience building performant, scalable, and user-focused applications.`,
     techStack: ['React.js', 'Next.js', 'React Native', 'Tailwind CSS', 'TypeScript'],
     stats: [
-        { number: "3+", label: "Years Experience" },
+        { number: `${calculateExperienceYears()}`, label: "Years Experience" },
         { number: "50+", label: "Projects Completed" },
         { number: "100%", label: "Client Satisfaction" }
     ],
@@ -40,7 +41,7 @@ export const heroData = {
 // About Section Data
 export const aboutData = {
     stats: [
-        { number: "3+", label: "Years Experience" },
+        { number: `${calculateExperienceYears()}`, label: "Years Experience" },
         { number: "50+", label: "Projects" },
         { number: "15+", label: "Technologies" },
         { number: "100%", label: "Client Satisfaction" }
@@ -83,7 +84,7 @@ export const navItems = [
 
 
 export const stats = [
-    { number: "3+", label: "Years Experience" },
+    { number: `${calculateExperienceYears()}`, label: "Years Experience" },
     { number: "15+", label: "Projects Completed" },
     { number: "7+", label: "Certifications" },
     { number: "5", label: "Tech Stacks" },

@@ -2,7 +2,7 @@ export const links = {
     github: "https://github.com/Ajay-pal0",
     linkedin: "https://www.linkedin.com/in/ajay-pal0",
     twitter: "https://x.com/Shinchan_1432",
-    resume: "https://drive.google.com/file/d/12oR541j6L7cnow6Al_tzlFtYaJmOWp9T/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1IE7BQDYw2PZT_PtS-kW-cfchW8UqGUgD/view?usp=drive_link",
     hackerrank: {
         react: "https://www.hackerrank.com/certificates/905792bd2b2e",
         javascript: "https://www.hackerrank.com/certificates/8aa508d12494",
