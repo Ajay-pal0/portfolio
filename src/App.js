@@ -22,7 +22,7 @@ export default function App() {
           <ExperienceSection />
           <SkillsAndCertifications />
           <ProjectsSection />
-          <TestimonialsSection />
+          {/* <TestimonialsSection /> */}
           <ContactSection />
         </Suspense>
       </main>
