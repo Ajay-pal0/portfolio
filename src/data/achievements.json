@@ -1,0 +1,22 @@
+[
+  {
+    "title": "35-40% Latency Reduction",
+    "description": "Optimized database queries and FastAPI/Django backend workflows, significantly reducing API response times under high operational load.",
+    "icon": "Zap"
+  },
+  {
+    "title": "40% Faster Page Loads",
+    "description": "Implemented advanced code splitting, lazy loading, and state management in React, reducing bundle sizes and increasing page speed.",
+    "icon": "Cpu"
+  },
+  {
+    "title": "60% Reporting Effort Cut",
+    "description": "Delivered real-time data visualization dashboards, eliminating manual compile steps for supply chain and warehouse reports.",
+    "icon": "BarChart"
+  },
+  {
+    "title": "30% Faster Feature Delivery",
+    "description": "Designed and implemented a modular, reusable UI library that streamlined product designs and reduced regression bugs.",
+    "icon": "Layers"
+  }
+]

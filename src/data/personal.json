@@ -1,0 +1,44 @@
+{
+  "name": "Ajay Pal",
+  "title": "Full Stack Developer",
+  "subtitle": "Python · Django · FastAPI · React.js · Next.js · Node.js",
+  "email": "ajaypal05192@gmail.com",
+  "phone": "+91 7208401709",
+  "location": "Airoli, Navi Mumbai, India",
+  "github": "https://github.com/Ajay-pal0",
+  "linkedin": "https://www.linkedin.com/in/ajay-pal0",
+  "twitter": "https://x.com/Shinchan_1432",
+  "resumePdf": "/assets/docs/Ajay_Pal_Full_Stack_Developer_Resume.pdf",
+  "resumeDocx": "/assets/docs/Ajay_Pal_Full_Stack_Developer_Resume.docx",
+  "profileImage": "/assets/images/profile.jpg",
+  "web3formsAccessKey": "86a078c1-fdc5-44bd-9a47-dfa6f90bb67a",
+  "summary": "Strategic and results-focused Full Stack Developer with 5+ years of success in architecting and deploying high-performance enterprise solutions. Specializing in Python/Django/FastAPI backend and modern React.js/Next.js frontend, I have a proven track record leading large-scale projects across Supply Chain, Finance, and Enterprise Operations. Key achievements include reducing system latency by 35–40% and optimizing frontend load times by 40%.",
+  "heroDescription": "Strategic and results-focused Full Stack Developer specializing in building high-performance backends (Python, Django, FastAPI) and scalable, responsive interfaces (React, Next.js). Key achievements include reducing system latency by 35–40% and optimizing frontend load times by 40%.",
+  "typingStrings": [
+    "Hi, I'm Ajay Pal",
+    "A Full Stack Developer",
+    "Python & Django Expert",
+    "React & Next.js Specialist"
+  ],
+  "badgeText": "Available for new opportunities",
+  "status": "Available for work",
+  "stats": [
+    {
+      "value": "5+",
+      "label": "Years Experience"
+    },
+    {
+      "value": "20+",
+      "label": "Projects Completed"
+    },
+    {
+      "value": "5+",
+      "label": "Enterprise Systems"
+    }
+  ],
+  "bio": {
+    "story": "I'm a strategic and results-focused Full Stack Developer with over 5 years of professional experience in building enterprise-grade applications. I specialize in designing robust, scalable backends using Python (Django, FastAPI) and crafting clean, responsive user interfaces using React.js, Next.js, and Tailwind CSS.",
+    "journey": "My work spans across critical sectors like Supply Chain, Finance, HRMS, and Enterprise Operations, where I've led the design and implementation of WMS, TMS, and AMS systems. I'm passionate about performance optimization, microservices architecture, clean code, and database tuning.",
+    "interests": "I am actively exploring Machine Learning, Generative AI, and edge desktop app development with Tauri. Outside of coding, I'm passionate about system architecture and solving complex engineering bottlenecks."
+  }
+}

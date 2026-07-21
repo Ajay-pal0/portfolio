@@ -1,125 +1,156 @@
 import React, { useState } from "react";
 import { FloatingParticles } from "./common";
 import { useProjectFilter, useMousePosition } from "../hooks";
-import { ExternalLink, Github, ArrowUpRight, Sparkles, Code2, Eye, Star, FolderOpen } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, Sparkles, Code2, Eye, Star, FolderOpen, X, ArrowRight, Calendar, Briefcase, User } from "lucide-react";
 
-// Enhanced Section Title Component (matching your style)
-const SectionTitle = ({ title }) => (
-    <div className="text-center mb-20">
-        <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-indigo-100 to-cyan-100 rounded-2xl mb-6">
-            <Star className="w-8 h-8 text-indigo-600" />
+// Section Title Component
+const SectionTitle = ({ title, subtitle }) => (
+    <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center p-2.5 bg-indigo-50 dark:bg-indigo-950/40 rounded-full mb-4 border border-indigo-100 dark:border-indigo-800/20">
+            <Star className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
             {title}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Innovative solutions that showcase my technical expertise and problem-solving abilities
+        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-semibold">
+            {subtitle}
         </p>
-        <div className="mt-8 w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-500 mx-auto rounded-full"></div>
+        <div className="mt-5 w-20 h-1.5 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-full mx-auto"></div>
     </div>
 );
 
-
 // Project Card Component
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, onViewDetails }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const getStatusColor = (status) => {
         switch (status) {
-            case 'Live': return 'text-green-600 bg-green-100';
-            case 'Development': return 'text-yellow-600 bg-yellow-100';
-            case 'Completed': return 'text-blue-600 bg-blue-100';
-            default: return 'text-gray-600 bg-gray-100';
+            case 'Live': return 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/30';
+            case 'Development': return 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900/30';
+            case 'Completed': return 'text-blue-650 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-105 dark:border-blue-900/30';
+            default: return 'text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/50 border-slate-100 dark:border-slate-800';
         }
     };
 
     return (
         <div
-            className="group relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 transform hover:scale-105 hover:-rotate-1 border border-white/50 hover:border-indigo-200 overflow-hidden"
+            className="group relative bg-white/70 dark:bg-[#0e1424]/75 backdrop-blur-xl border border-white/40 dark:border-white/5 shadow-lg rounded-3xl overflow-hidden hover:scale-[1.02] hover:-translate-y-1 transition-all duration-350 flex flex-col justify-between"
             style={{ animationDelay: `${index * 100}ms` }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            {/* Top gradient glow overlay */}
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 opacity-80" />
 
-            {/* Project header */}
-            <div className="relative p-8">
-                <div className="flex items-start justify-between mb-6">
-                    <div className="flex items-center space-x-4">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${project.gradient} flex items-center justify-center text-2xl shadow-lg`}>
-                            {project.icon}
+            <div className="p-7 flex-1 flex flex-col justify-between">
+                <div>
+                    {/* Card Header */}
+                    <div className="flex items-start justify-between mb-5">
+                        <div className="flex items-center space-x-3.5 text-left">
+                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-2xl shadow-md text-white select-none">
+                                {project.icon || '🚀'}
+                            </div>
+                            <div>
+                                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">
+                                    {project.title}
+                                </h3>
+                                <span className={`mt-1.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${getStatusColor(project.status)}`}>
+                                    {project.status}
+                                </span>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                                {project.title}
-                            </h3>
-                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(project.status)}`}>
-                                {project.status}
+
+                        {/* Top Action Icons */}
+                        <div className="flex gap-1.5">
+                            {project.demo && (
+                                <a
+                                    href={project.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 bg-slate-100 dark:bg-slate-900 border border-slate-200/20 dark:border-slate-800 text-slate-700 dark:text-slate-350 rounded-xl hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white dark:hover:text-white transition-all transform hover:scale-110 shadow-sm"
+                                >
+                                    <ExternalLink size={14} />
+                                </a>
+                            )}
+                            {project.code && (
+                                <a
+                                    href={project.code}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 bg-slate-100 dark:bg-slate-900 border border-slate-200/20 dark:border-slate-800 text-slate-700 dark:text-slate-350 rounded-xl hover:bg-slate-905 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all transform hover:scale-110 shadow-sm"
+                                >
+                                    <Github size={14} />
+                                </a>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Brief description */}
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5 text-left font-medium">
+                        {project.description}
+                    </p>
+
+                    {/* Bullet Details highlights */}
+                    {project.details && (
+                        <ul className="mb-6 space-y-2 text-left">
+                            {project.details.slice(0, 2).map((detail, dIdx) => (
+                                <li key={dIdx} className="text-xs text-slate-500 dark:text-slate-400 flex items-start">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-2 mt-1.5 flex-shrink-0" />
+                                    <span className="leading-snug">{detail}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+
+                <div>
+                    {/* Tech stack */}
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                        {project.techs.map((tech, techIndex) => (
+                            <span
+                                key={techIndex}
+                                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/20 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-bold"
+                            >
+                                {tech}
                             </span>
-                        </div>
+                        ))}
                     </div>
-                    <div className="flex space-x-2">
-                        {project.demo && (
-                            <a
-                                href={project.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 bg-indigo-100 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all duration-300 transform hover:scale-110"
-                            >
-                                <ExternalLink className="w-4 h-4" />
-                            </a>
-                        )}
-                        {project.code && (
-                            <a
-                                href={project.code}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 bg-gray-100 text-gray-600 rounded-xl hover:bg-gray-800 hover:text-white transition-all duration-300 transform hover:scale-110"
-                            >
-                                <Github className="w-4 h-4" />
-                            </a>
-                        )}
+
+                    {/* Project category */}
+                    <div className="flex items-center text-xs font-bold text-slate-500 dark:text-slate-455 pt-4 border-t border-slate-200/50 dark:border-slate-800/40">
+                        <FolderOpen className="w-3.5 h-3.5 mr-1.5 text-indigo-500" />
+                        {project.category}
                     </div>
-                </div>
-
-                {/* Project description */}
-                <p className="text-gray-600 leading-relaxed mb-6">
-                    {project.description}
-                </p>
-
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                    {project.techs.map((tech, techIndex) => (
-                        <span
-                            key={techIndex}
-                            className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-cyan-100 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-200"
-                        >
-                            {tech}
-                        </span>
-                    ))}
-                </div>
-
-                {/* Project category */}
-                <div className="flex items-center text-sm text-gray-500">
-                    <FolderOpen className="w-4 h-4 mr-2" />
-                    {project.category}
                 </div>
             </div>
 
-            {/* Hover overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-br from-indigo-600/90 to-cyan-600/90 flex items-center justify-center transition-all duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-                <div className="text-center text-white">
-                    <div className="text-2xl font-bold mb-2">View Project</div>
-                    <div className="flex justify-center space-x-4">
+            {/* Hover overlay details panel */}
+            <div className={`absolute inset-0 bg-gradient-to-br from-indigo-900/95 to-cyan-900/95 flex flex-col items-center justify-center p-6 text-center transition-all duration-350 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}>
+                <h4 className="text-lg font-black text-white mb-2">{project.title}</h4>
+                <p className="text-xs text-indigo-150 max-w-xs leading-relaxed mb-6 font-semibold">{project.description}</p>
+                
+                <div className="flex flex-col gap-2.5 items-center justify-center w-full max-w-[220px]">
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onViewDetails(project);
+                        }}
+                        className="flex items-center justify-center gap-1.5 bg-white text-indigo-600 hover:bg-slate-50 w-full py-2.5 rounded-xl font-extrabold text-xs shadow-md transition-all hover:scale-105"
+                    >
+                        <Eye size={14} />
+                        <span>View Details</span>
+                    </button>
+                    
+                    <div className="flex gap-2.5 w-full">
                         {project.demo && (
                             <a
                                 href={project.demo}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-white/30 transition-all duration-300"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex-1 flex items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white py-2 rounded-xl font-bold text-[10px] shadow-md transition-all hover:scale-105 border border-white/10"
                             >
-                                <Eye className="w-4 h-4" />
+                                <ExternalLink size={10} />
                                 <span>Demo</span>
                             </a>
                         )}
@@ -128,9 +159,10 @@ const ProjectCard = ({ project, index }) => {
                                 href={project.code}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-white/30 transition-all duration-300"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex-1 flex items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white py-2 rounded-xl font-bold text-[10px] shadow-md transition-all hover:scale-105 border border-white/10"
                             >
-                                <Code2 className="w-4 h-4" />
+                                <Github size={10} />
                                 <span>Code</span>
                             </a>
                         )}
@@ -141,111 +173,253 @@ const ProjectCard = ({ project, index }) => {
     );
 };
 
+// Project Details / Case Study Modal Component
+const ProjectModal = ({ project, onClose }) => {
+    React.useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [onClose]);
+
+    React.useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
+
+    if (!project) return null;
+
+    return (
+        <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-955/75 backdrop-blur-md"
+            onClick={onClose}
+        >
+            <div 
+                className="bg-white dark:bg-[#0c101b] border border-slate-200/50 dark:border-slate-800/60 rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative p-6 sm:p-8 text-left space-y-6 animate-scale-up"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Close Button */}
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 p-2 bg-slate-100 dark:bg-slate-900 border border-slate-200/20 dark:border-slate-800 text-slate-700 dark:text-slate-350 rounded-xl hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 dark:hover:text-white transition-all transform hover:scale-105"
+                >
+                    <X size={18} />
+                </button>
+
+                {/* Header */}
+                <div className="flex items-center space-x-4 pr-10">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-3xl shadow-md text-white select-none shrink-0">
+                        {project.icon || '🚀'}
+                    </div>
+                    <div>
+                        <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight">
+                            {project.title}
+                        </h3>
+                        <div className="flex flex-wrap items-center gap-2 mt-2">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold border text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/30">
+                                {project.status}
+                            </span>
+                            <span className="inline-flex items-center text-xs font-semibold text-slate-400 dark:text-slate-500">
+                                <Calendar className="w-3.5 h-3.5 mr-1" />
+                                {project.timeline}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Description */}
+                <div className="border-t border-slate-200/50 dark:border-slate-800/40 pt-5">
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-semibold">
+                        {project.description}
+                    </p>
+                </div>
+
+                {/* Technologies Employed */}
+                <div className="space-y-3">
+                    <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center">
+                        <Code2 className="w-4 h-4 mr-2 text-indigo-500" />
+                        Technologies Employed
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                        {project.techs.map((tech, index) => (
+                            <span
+                                key={index}
+                                className="px-3 py-1.5 bg-slate-100 dark:bg-slate-900 border border-slate-200/20 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-bold"
+                            >
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Detailed Features & Architecture */}
+                <div className="space-y-3">
+                    <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center">
+                        <Sparkles className="w-4 h-4 mr-2 text-indigo-500" />
+                        Detailed Features &amp; Architecture
+                    </h4>
+                    <ul className="space-y-3">
+                        {project.details.map((detail, index) => (
+                            <li key={index} className="flex items-start">
+                                <ArrowRight className="w-4 h-4 text-cyan-500 mr-3 mt-1 shrink-0" />
+                                <span className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    {detail}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Footer Action Links */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-5 border-t border-slate-200/50 dark:border-slate-800/40">
+                    {project.demo && (
+                        <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-cyan-500 hover:shadow-lg text-white py-3 rounded-2xl font-extrabold text-sm shadow-md transition-all hover:scale-102"
+                        >
+                            <Eye size={16} />
+                            <span>Live Demo / Platform</span>
+                        </a>
+                    )}
+                    {project.code && (
+                        <a
+                            href={project.code}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-white py-3 rounded-2xl font-extrabold text-sm shadow-md transition-all hover:scale-102 border border-slate-200/20 dark:border-slate-800/40"
+                        >
+                            <Github size={16} />
+                            <span>View Source Code</span>
+                        </a>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export const ProjectsSection = () => {
     const mousePosition = useMousePosition('projects');
-    const { projects: filteredProjects, categories, activeCategory, handleCategoryChange } = useProjectFilter();
+    const { projects: filteredProjects, categories, activeCategory, handleCategoryChange, activeType, handleTypeChange } = useProjectFilter();
+    const [selectedProject, setSelectedProject] = useState(null);
 
     return (
         <section
             id="projects"
-            className="relative py-20 sm:py-32 overflow-hidden"
+            className="relative py-20 sm:py-28 overflow-hidden bg-slate-50 dark:bg-[#080b11] transition-colors"
             style={{
                 background: `
-                radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, #f8fafc 0%, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%, #f8fafc 100%)
-              `
+                  radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.04) 0%, transparent 60%)
+                `
             }}
         >
-            {/* Enhanced animated background */}
-            <div className="absolute inset-0 pointer-events-none">
-                {/* Primary gradient blob */}
-                <div
-                    className="absolute top-20 left-10 w-96 h-96 rounded-full opacity-20 blur-3xl animate-pulse"
-                    style={{
-                        background: 'linear-gradient(45deg, #6366f1, #06b6d4, #8b5cf6)',
-                        animationDuration: '12s'
-                    }}
-                />
-
-                {/* Secondary gradient blob */}
-                <div
-                    className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-15 blur-2xl animate-pulse"
-                    style={{
-                        background: 'linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4)',
-                        animationDuration: '16s',
-                        animationDelay: '2s'
-                    }}
-                />
-
-                {/* Accent shapes */}
-                <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full opacity-10 blur-xl animate-pulse" style={{ animationDuration: '20s' }} />
-                <div className="absolute top-1/4 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-15 blur-lg animate-pulse" style={{ animationDuration: '14s' }} />
-            </div>
-
             <FloatingParticles />
 
             <div className="container mx-auto px-6 sm:px-8 relative z-10">
-                <SectionTitle title="Featured Projects" />
+                <SectionTitle 
+                    title="Featured Projects" 
+                    subtitle="A selection of high-performance web systems, customizable dashboards, and desktop applications."
+                />
 
-                {/* Category Filter */}
-                <div className="flex flex-wrap justify-center gap-4 mb-16">
-                    {categories.map((category) => (
+                {/* ── Primary Type Tabs ── */}
+                <div className="flex justify-center mb-8">
+                    <div className="inline-flex items-center p-1 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200/30 dark:border-slate-800/50 rounded-2xl shadow-sm gap-1">
                         <button
-                            key={category}
-                            onClick={() => handleCategoryChange(category)}
-                            className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${activeCategory === category
-                                ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-lg shadow-indigo-500/25'
-                                : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border border-gray-200 hover:border-indigo-200'
-                                }`}
+                            onClick={() => handleTypeChange('professional')}
+                            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                activeType === 'professional'
+                                    ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-md'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400'
+                            }`}
                         >
-                            {category}
+                            <Briefcase className="w-4 h-4" />
+                            Professional & Client
                         </button>
-                    ))}
+                        <button
+                            onClick={() => handleTypeChange('personal')}
+                            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                activeType === 'personal'
+                                    ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-md'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400'
+                            }`}
+                        >
+                            <User className="w-4 h-4" />
+                            Personal Projects
+                        </button>
+                    </div>
                 </div>
+
+                {/* ── Secondary Category Filter Pills ── */}
+                {categories.length > 2 && (
+                    <div className="flex flex-wrap justify-center gap-2 mb-10">
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => handleCategoryChange(category)}
+                                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 border ${
+                                    activeCategory === category
+                                        ? activeType === 'professional'
+                                            ? 'bg-indigo-600 border-transparent text-white shadow-sm'
+                                            : 'bg-purple-600 border-transparent text-white shadow-sm'
+                                        : 'bg-white/70 dark:bg-slate-900/50 border-slate-200/20 dark:border-slate-800/40 text-slate-600 dark:text-slate-400 hover:border-slate-300'
+                                }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
+                )}
 
                 {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {filteredProjects.map((project, index) => (
-                        <ProjectCard key={index} project={project} index={index} />
+                        <ProjectCard 
+                            key={index} 
+                            project={project} 
+                            index={index} 
+                            onViewDetails={setSelectedProject}
+                        />
                     ))}
                 </div>
 
-                {/* Call to Action */}
-                <div className="text-center mt-16">
-                    <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 lg:p-12 border border-white/50">
-                        <div className="max-w-2xl mx-auto">
-                            <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                                <Sparkles className="w-8 h-8 text-white" />
+                {/* Bottom Call to Action Card */}
+                <div className="text-center mt-20">
+                    <div className="glass-panel p-8 sm:p-12 rounded-3xl relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 blur-3xl pointer-events-none rounded-full" />
+                        <div className="max-w-2xl mx-auto text-center relative z-10">
+                            <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md text-white">
+                                <Sparkles className="w-6 h-6" />
                             </div>
-                            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                                Ready to Start Your Next Project?
+                            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3">
+                                Interested in cooperating?
                             </h3>
-                            <p className="text-gray-600 mb-8 leading-relaxed">
-                                Let's collaborate to bring your ideas to life with cutting-edge technology and innovative solutions.
+                            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed font-semibold text-sm sm:text-base">
+                                Whether you're looking for a performance-focused backend dev, a scalable frontend setup, or general architectural consulting, let's connect!
                             </p>
                             <a
                                 href="#contact"
-                                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-indigo-500/25 transform hover:scale-105 transition-all duration-300"
+                                className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-bold rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
                             >
-                                Get In Touch
-                                <ArrowUpRight className="ml-2 w-5 h-5" />
+                                Let's get in touch
+                                <ArrowUpRight className="ml-2 w-4 h-4" />
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <style jsx>{`
-              @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                25% { transform: translateY(-10px) rotate(90deg); }
-                50% { transform: translateY(-20px) rotate(180deg); }
-                75% { transform: translateY(-10px) rotate(270deg); }
-              }
-              .animate-float {
-                animation: float 8s ease-in-out infinite;
-              }
-            `}</style>
+            {/* Project Details Modal */}
+            {selectedProject && (
+                <ProjectModal 
+                    project={selectedProject} 
+                    onClose={() => setSelectedProject(null)} 
+                />
+            )}
         </section>
     );
 };

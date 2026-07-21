@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Director of Product",
+    "role": "Co-Founder",
+    "company": "Cognoscis Technologies",
+    "feedback": "Ajay took full ownership of the frontend architecture across our product lines. His focus on component reusability and load time reduction was critical to scaling our SaaS applications.",
+    "avatar": ""
+  },
+  {
+    "name": "Supply Chain Operations Lead",
+    "role": "Assistant General Manager",
+    "company": "Radhakrishna Foodland",
+    "feedback": "Ajay successfully led the design and implementation of our WMS API updates and employee Attendance Management System (AMS). His optimizations significantly reduced system latency under peak hours.",
+    "avatar": ""
+  }
+]

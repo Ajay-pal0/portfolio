@@ -1,26 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useMousePosition } from "../hooks";
 import { FloatingParticles } from "./common";
-import { experiences } from "../constants/data";
-import { Briefcase, MapPin, Calendar, Award, TrendingUp, Code, } from "lucide-react";
+import { experienceData } from "../data";
+import { Briefcase, MapPin, Calendar, Award, TrendingUp, Code, ArrowRight } from "lucide-react";
 
-// Enhanced Section Title Component
-const SectionTitle = ({ title }) => (
-    <div className="text-center mb-20">
-        <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-indigo-100 to-cyan-100 rounded-2xl mb-6">
-            <Briefcase className="w-8 h-8 text-indigo-600" />
+// Section Title Component
+const SectionTitle = ({ title, subtitle }) => (
+    <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center p-2.5 bg-indigo-50 dark:bg-indigo-950/40 rounded-full mb-4 border border-indigo-100 dark:border-indigo-800/20">
+            <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            My {title}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
+            {title}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A journey through my professional growth and the impact I've made at each step
+        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-semibold">
+            {subtitle}
         </p>
-        <div className="mt-8 w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-500 mx-auto rounded-full"></div>
+        <div className="mt-5 w-20 h-1.5 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-full mx-auto"></div>
     </div>
 );
-
 
 export const ExperienceSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -28,134 +26,159 @@ export const ExperienceSection = () => {
 
     const getTypeColor = (type) => {
         switch (type) {
-            case 'Full-time': return 'text-green-600 bg-green-100';
-            case 'Learning': return 'text-blue-600 bg-blue-100';
-            case 'Education': return 'text-purple-600 bg-purple-100';
-            default: return 'text-gray-600 bg-gray-100';
+            case 'Full-time': 
+                return 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/30';
+            case 'Contract / Learning': 
+            case 'Learning': 
+                return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-100 dark:border-blue-900/30';
+            default: 
+                return 'text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800';
         }
     };
 
     return (
         <section
             id="experience"
-            className="relative py-20 sm:py-32 overflow-hidden"
+            className="relative py-20 sm:py-28 overflow-hidden bg-slate-50 dark:bg-[#080b11] transition-colors"
             style={{
                 background: `
-                radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, #f8fafc 0%, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%, #f8fafc 100%)
-              `
+                  radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.04) 0%, transparent 60%)
+                `
             }}
         >
-            {/* Enhanced animated background */}
-            <div className="absolute inset-0 pointer-events-none">
-                {/* Primary gradient blob */}
-                <div
-                    className="absolute top-20 left-10 w-96 h-96 rounded-full opacity-20 blur-3xl animate-pulse"
-                    style={{
-                        background: 'linear-gradient(45deg, #6366f1, #06b6d4, #8b5cf6)',
-                        animationDuration: '12s'
-                    }}
-                />
-
-                {/* Secondary gradient blob */}
-                <div
-                    className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-15 blur-2xl animate-pulse"
-                    style={{
-                        background: 'linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4)',
-                        animationDuration: '16s',
-                        animationDelay: '2s'
-                    }}
-                />
-
-                {/* Accent shapes */}
-                <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full opacity-10 blur-xl animate-pulse" style={{ animationDuration: '20s' }} />
-                <div className="absolute top-1/4 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-15 blur-lg animate-pulse" style={{ animationDuration: '14s' }} />
-            </div>
-
             <FloatingParticles />
 
             <div className="container mx-auto px-6 sm:px-8 relative z-10">
-                <SectionTitle title="Experience" />
+                <SectionTitle 
+                    title="Work Experience" 
+                    subtitle="A walkthrough of my career milestones, projects engineered, and roles assumed in the industry."
+                />
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    {/* Timeline Navigation */}
-                    <div className="lg:col-span-1">
-                        <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/50">
-                            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                                <TrendingUp className="w-5 h-5 mr-2 text-indigo-500" />
-                                Timeline
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    {/* Left: Tab selectors list */}
+                    <div className="lg:col-span-4">
+                        <div className="glass-panel p-5 rounded-3xl">
+                            <h3 className="text-md font-bold text-slate-800 dark:text-slate-200 mb-4 uppercase tracking-wider flex items-center">
+                                <TrendingUp className="w-4 h-4 mr-2 text-indigo-500" />
+                                Career Journey
                             </h3>
-                            <div className="space-y-4">
-                                {experiences.map((experience, index) => (
+                            <div className="space-y-3">
+                                {experienceData.map((exp, index) => (
                                     <button
                                         key={index}
                                         onClick={() => setActiveIndex(index)}
-                                        className={`w-full text-left p-4 rounded-2xl transition-all duration-300 ${activeIndex === index
-                                                ? 'bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg'
-                                                : 'bg-gray-50 hover:bg-white hover:shadow-md text-gray-700'
-                                            }`}
+                                        className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 flex flex-col gap-1.5 ${
+                                            activeIndex === index
+                                                ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 border-transparent text-white shadow-lg'
+                                                : 'bg-slate-100/50 dark:bg-slate-900/30 border-slate-200/20 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 hover:border-slate-350 dark:hover:border-slate-700'
+                                        }`}
                                     >
-                                        <div className="flex items-center justify-between mb-2">
-                                            <span className="font-semibold text-sm">{experience.period}</span>
-                                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(experience.type)}`}>
-                                                {experience.type}
+                                        <div className="flex items-center justify-between w-full">
+                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                                                activeIndex === index 
+                                                    ? 'text-white border-white/30 bg-white/10'
+                                                    : getTypeColor(exp.type)
+                                            }`}>
+                                                {exp.type}
+                                            </span>
+                                            <span className={`text-xs font-semibold ${activeIndex === index ? 'text-indigo-100' : 'text-slate-400 dark:text-slate-500'}`}>
+                                                {exp.period}
                                             </span>
                                         </div>
-                                        <h4 className="font-bold">{experience.title}</h4>
-                                        <p className="text-sm opacity-80">{experience.company}</p>
+                                        <h4 className="font-extrabold text-sm sm:text-base leading-snug">{exp.role}</h4>
+                                        <p className={`text-xs ${activeIndex === index ? 'text-indigo-50' : 'text-slate-500 dark:text-slate-400'}`}>{exp.company}</p>
                                     </button>
                                 ))}
                             </div>
                         </div>
                     </div>
 
-                    {/* Experience Details */}
-                    <div className="lg:col-span-2">
-                        <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/50">
-                            {experiences[activeIndex] && (
-                                <div className="space-y-6">
+                    {/* Right: Active Card details */}
+                    <div className="lg:col-span-8">
+                        <div className="glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden min-h-[480px]">
+                            {/* Decorative background glow */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 blur-3xl pointer-events-none rounded-full" />
+
+                            {experienceData[activeIndex] && (
+                                <div className="space-y-6 relative z-10 text-left">
                                     {/* Header */}
-                                    <div className="flex items-start justify-between">
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/50 dark:border-slate-800/40">
                                         <div>
-                                            <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                                                {experiences[activeIndex].title}
+                                            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2">
+                                                {experienceData[activeIndex].role}
                                             </h3>
-                                            <div className="flex items-center space-x-4 text-gray-600 mb-4">
+                                            <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400">
                                                 <div className="flex items-center">
-                                                    <Briefcase className="w-4 h-4 mr-2" />
-                                                    {experiences[activeIndex].company}
+                                                    <Briefcase className="w-4 h-4 mr-1.5 text-indigo-500" />
+                                                    {experienceData[activeIndex].company}
                                                 </div>
                                                 <div className="flex items-center">
-                                                    <MapPin className="w-4 h-4 mr-2" />
-                                                    {experiences[activeIndex].location}
+                                                    <MapPin className="w-4 h-4 mr-1.5 text-indigo-500" />
+                                                    {experienceData[activeIndex].location}
                                                 </div>
                                                 <div className="flex items-center">
-                                                    <Calendar className="w-4 h-4 mr-2" />
-                                                    {experiences[activeIndex].period}
+                                                    <Calendar className="w-4 h-4 mr-1.5 text-indigo-500" />
+                                                    {experienceData[activeIndex].period}
                                                 </div>
                                             </div>
                                         </div>
-                                        <span className={`px-4 py-2 rounded-full text-sm font-semibold ${getTypeColor(experiences[activeIndex].type)}`}>
-                                            {experiences[activeIndex].type}
-                                        </span>
                                     </div>
 
-                                    {/* Description */}
-                                    <div className="prose prose-lg text-gray-600 leading-relaxed">
-                                        <p>{experiences[activeIndex].description}</p>
-                                    </div>
+                                    {/* Brief summary */}
+                                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed font-semibold">
+                                        {experienceData[activeIndex].description}
+                                    </p>
 
-                                    {/* Technologies */}
+                                    {/* Key Systems/Projects */}
+                                    {experienceData[activeIndex].projects && (
+                                        <div className="space-y-3">
+                                            <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center">
+                                                <Briefcase className="w-4 h-4 mr-2 text-indigo-500" />
+                                                Key Systems Engineered
+                                            </h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {experienceData[activeIndex].projects.map((proj, index) => (
+                                                    <span
+                                                        key={index}
+                                                        className="px-4 py-1.5 bg-gradient-to-r from-indigo-500/10 to-cyan-500/10 dark:from-indigo-950/40 dark:to-cyan-950/40 border border-indigo-500/20 dark:border-indigo-800/30 text-indigo-700 dark:text-indigo-300 rounded-xl text-xs font-bold"
+                                                    >
+                                                        {proj}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Core highlights */}
                                     <div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                                            <Code className="w-5 h-5 mr-2 text-indigo-500" />
-                                            Technologies & Skills
+                                         <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-4 flex items-center">
+                                             <Award className="w-4 h-4 mr-2 text-indigo-500" />
+                                             Core Highlights
+                                         </h4>
+                                         <ul className="space-y-3">
+                                             {experienceData[activeIndex].highlights.map((highlight, index) => (
+                                                 <li key={index} className="flex items-start">
+                                                     <ArrowRight className="w-4 h-4 text-cyan-500 mr-3 mt-1 flex-shrink-0" />
+                                                     <span className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                                                        {highlight}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Stack used */}
+                                    <div>
+                                        <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-3 flex items-center">
+                                            <Code className="w-4 h-4 mr-2 text-indigo-500" />
+                                            Technologies Employed
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
-                                            {experiences[activeIndex].technologies.map((tech, index) => (
+                                            {experienceData[activeIndex].technologies.map((tech, index) => (
                                                 <span
                                                     key={index}
-                                                    className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-cyan-100 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-200"
+                                                    className="px-4 py-1.5 bg-slate-100/70 dark:bg-slate-900 border border-slate-200/20 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-bold"
                                                 >
                                                     {tech}
                                                 </span>
@@ -163,45 +186,13 @@ export const ExperienceSection = () => {
                                         </div>
                                     </div>
 
-                                    {/* Achievements */}
-                                    <div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                                            <Award className="w-5 h-5 mr-2 text-indigo-500" />
-                                            Key Achievements
-                                        </h4>
-                                        <ul className="space-y-3">
-                                            {experiences[activeIndex].achievements.map((achievement, index) => (
-                                                <li key={index} className="flex items-start space-x-3">
-                                                    <div className="w-2 h-2 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
-                                                    <span className="text-gray-600">{achievement}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
                                 </div>
                             )}
                         </div>
                     </div>
+
                 </div>
             </div>
-
-            <style jsx>{`
-              @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                25% { transform: translateY(-10px) rotate(90deg); }
-                50% { transform: translateY(-20px) rotate(180deg); }
-                75% { transform: translateY(-10px) rotate(270deg); }
-              }
-              .animate-float {
-                animation: float 8s ease-in-out infinite;
-              }
-              
-              .prose p {
-                margin-bottom: 1.5rem;
-                font-size: 1.1rem;
-                line-height: 1.8;
-              }
-            `}</style>
         </section>
     );
 };

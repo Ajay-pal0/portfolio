@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Frontend Developer (React)",
+    "issuer": "HackerRank",
+    "issuerLogo": "hackerrank",
+    "date": "Jan 2025",
+    "credentialId": "905792bd2b2e",
+    "link": "https://www.hackerrank.com/certificates/905792bd2b2e",
+    "type": "React"
+  },
+  {
+    "title": "REST API (Intermediate)",
+    "issuer": "HackerRank",
+    "issuerLogo": "hackerrank",
+    "date": "Feb 2022",
+    "credentialId": "8aa508d12494",
+    "link": "https://www.hackerrank.com/certificates/8aa508d12494",
+    "type": "Backend"
+  },
+  {
+    "title": "JavaScript (Basic)",
+    "issuer": "HackerRank",
+    "issuerLogo": "hackerrank",
+    "date": "Feb 2022",
+    "credentialId": "8aa508d12494",
+    "link": "https://www.hackerrank.com/certificates/8aa508d12494",
+    "type": "JavaScript"
+  },
+  {
+    "title": "React (Basic)",
+    "issuer": "HackerRank",
+    "issuerLogo": "hackerrank",
+    "date": "Dec 2021",
+    "credentialId": "1a0e6ce2b9eb",
+    "link": "https://www.hackerrank.com/certificates/1a0e6ce2b9eb",
+    "type": "React"
+  },
+  {
+    "title": "Python (Basic)",
+    "issuer": "HackerRank",
+    "issuerLogo": "hackerrank",
+    "date": "Oct 2021",
+    "credentialId": "753c8912e702",
+    "link": "https://www.hackerrank.com/certificates/753c8912e702",
+    "type": "Python"
+  },
+  {
+    "title": "Django Framework (Intermediate)",
+    "issuer": "HackerRank",
+    "issuerLogo": "hackerrank",
+    "date": "Dec 2021",
+    "credentialId": "",
+    "link": "",
+    "type": "Django"
+  },
+  {
+    "title": "React Advanced Certificate",
+    "issuer": "TestDome",
+    "issuerLogo": "testdome",
+    "date": "Dec 2021",
+    "credentialId": "f01651536bc8434da28b10e8bba1d8e9",
+    "link": "https://www.testdome.com/certificates/f01651536bc8434da28b10e8bba1d8e9",
+    "type": "React"
+  },
+  {
+    "title": "MTA: Introduction to Programming Using Python",
+    "issuer": "Microsoft",
+    "issuerLogo": "microsoft",
+    "date": "Jul 2021",
+    "credentialId": "3a44bd3a-e514-4672-83bb-f2f70c398678",
+    "link": "https://www.credly.com/badges/3a44bd3a-e514-4672-83bb-f2f70c398678?source=linked_in_profile",
+    "type": "Python"
+  }
+]

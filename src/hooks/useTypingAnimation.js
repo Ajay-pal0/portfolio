@@ -1,13 +1,19 @@
-import { useState, useEffect } from 'react';
-import { heroData, animationSettings } from '../constants/data';
+import { useState, useEffect, useMemo } from 'react';
+import { personalData } from '../data';
 
 export const useTypingAnimation = () => {
     const [text, setText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
 
-    const { typingStrings } = heroData;
-    const { typeSpeed, deleteSpeed, pauseTime } = animationSettings.typingAnimation;
+    const typingStrings = useMemo(() => personalData?.typingStrings || [
+        "Hi, I'm Ajay Pal",
+        "A Full Stack Developer"
+    ], []);
+    
+    const typeSpeed = 100;
+    const deleteSpeed = 50;
+    const pauseTime = 2000;
 
     useEffect(() => {
         const currentString = typingStrings[currentIndex];

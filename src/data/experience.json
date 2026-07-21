@@ -1,0 +1,60 @@
+[
+  {
+    "role": "Assistant Manager – Backend Developer",
+    "company": "Radhakrishna Foodland Pvt. Ltd.",
+    "period": "Feb 2026 – Present",
+    "location": "Thane, Maharashtra, India",
+    "type": "Full-time",
+    "description": "Leading backend architecture and development for large-scale enterprise systems across warehouse, transport, attendance, and order management.",
+    "highlights": [
+      "Architected and delivered the Attendance Management System (AMS) supporting multi-location employee check-ins, shift scheduling, leave workflows, and compliance reporting.",
+      "Designed and built scalable REST APIs using Django and FastAPI, powering WMS, TMS, and OMS modules used by cross-functional operations teams.",
+      "Engineered inventory tracking, order lifecycle, and transport coordination modules, consolidating previously siloed workflows into a unified platform.",
+      "Optimized database queries and backend processes, significantly reducing response times and improving throughput under peak operational load.",
+      "Implemented real-time log processing for attendance and operational data, enabling live dashboards for management visibility."
+    ],
+    "projects": [
+      "WMS (Warehouse Management System)",
+      "AMS (Attendance Management System)",
+      "TMS (Transport Management System)",
+      "OMS (Order Management System)"
+    ],
+    "technologies": ["Django", "FastAPI", "Python", "PostgreSQL", "REST APIs", "WebSockets"]
+  },
+  {
+    "role": "Software Developer – Full Stack",
+    "company": "Artdex & Cognoscis Technologies LLP",
+    "period": "Oct 2021 – Feb 2026",
+    "location": "Navi Mumbai, Maharashtra, India",
+    "type": "Full-time",
+    "description": "As a Full Stack Software Developer, I worked on building and scaling SaaS, web, mobile, and desktop applications across domains such as Finance, AI/Analytics, Inventory Management, HRMS, Legal/Compliance, and Education Technology.",
+    "highlights": [
+      "Architected and scaled full-stack SaaS products across finance, HRMS, and analytics domains using Django, FastAPI, and React.js/Next.js, serving thousands of daily active users.",
+      "Optimized frontend responsiveness and improved page load times by 40% using advanced code splitting, lazy loading, and Redux/React Context state management.",
+      "Engineered a reusable UI component library that accelerated feature development cycles by 30% and minimized regression bugs across multiple product lines.",
+      "Designed and delivered data-intensive dashboards with real-time analytics, reducing manual enterprise reporting effort by 60%.",
+      "Deployed and maintained high-availability containerized applications on AWS EC2 utilizing Docker and automated GitHub Actions CI/CD pipelines."
+    ],
+    "projects": [
+      "Finycs (Cloud Accounting Platform)",
+      "Foundation AI (Customizable Analytics Dashboard)",
+      "Inventory Management & Desktop Bridge App",
+      "Get It Done (HRMS & Task Management System)"
+    ],
+    "technologies": ["React.js", "Next.js", "Django", "FastAPI", "Redux", "Tailwind CSS", "AWS EC2", "Docker", "Chart.js", "Highcharts", "Tauri"]
+  },
+  {
+    "role": "Full-Stack Development Specialist",
+    "company": "Professional Development & Freelancing",
+    "period": "2020 – 2021",
+    "location": "Self-paced",
+    "type": "Contract / Learning",
+    "description": "Completed intensive full-stack development studies and built various open-source projects focusing on modern web technologies, database design, and software architecture principles.",
+    "highlights": [
+      "Mastered modern web technologies including JavaScript (ES6+), Node.js, Express, and MongoDB.",
+      "Learned core database design, relational modeling, and API integration best practices.",
+      "Developed responsive client portfolios and custom automation scripts, establishing solid coding habits and software engineering principles."
+    ],
+    "technologies": ["JavaScript", "Node.js", "React.js", "MongoDB", "SQL", "Git", "HTML5", "CSS3"]
+  }
+]

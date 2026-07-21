@@ -5,6 +5,8 @@ export const useIntersectionObserver = (options = {}) => {
     const [hasIntersected, setHasIntersected] = useState(false);
     const elementRef = useRef(null);
 
+    const { threshold = 0.1, root = null, rootMargin = "0px" } = options;
+
     useEffect(() => {
         const element = elementRef.current;
         if (!element) return;
@@ -18,7 +20,7 @@ export const useIntersectionObserver = (options = {}) => {
                     setHasIntersected(true);
                 }
             },
-            { threshold: 0.5, ...options }
+            { threshold, root, rootMargin }
         );
 
         observer.observe(element);
@@ -28,7 +30,7 @@ export const useIntersectionObserver = (options = {}) => {
                 observer.unobserve(element);
             }
         };
-    }, [options, hasIntersected]);
+    }, [threshold, root, rootMargin, hasIntersected]);
 
     return { elementRef, isIntersecting, hasIntersected };
-}; 
+};

@@ -1,0 +1,311 @@
+[
+  {
+    "title": "Finycs – Cloud Accounting Platform",
+    "type": "professional",
+    "timeline": "2022–Present",
+    "status": "Live",
+    "category": "Web App",
+    "icon": "💰",
+    "demo": "https://finycs.in",
+    "code": "",
+    "description": "Comprehensive cloud accounting platform with real-time financial reporting, automated GST compliance, multi-tenant data isolation, and invoice management.",
+    "techs": [
+      "React.js",
+      "Next.js",
+      "React Native",
+      "Redux",
+      "Tailwind CSS",
+      "Django",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "MongoDB",
+      "REST APIs",
+      "PayU",
+      "Chart.js",
+      "Highcharts.js"
+    ],
+    "details": [
+      "Architected a full-stack, multi-tenant cloud accounting system engineered to support concurrent enterprise clients while ensuring rigorous data isolation.",
+      "Developed and scaled cross-platform web and mobile (React Native) architectures providing flawless multi-device synchronization.",
+      "Delivered interactive, real-time financial dashboards mapping Profit & Loss (P&L), dynamic cash flows, operating expenses, and tax summaries via Chart.js and Highcharts.js.",
+      "Built a custom Query Builder / KPI Tool allowing corporate clients to programmatically define custom performance metrics (e.g., Revenue = Sales - Expense).",
+      "Engineered complete, localized GST compliance modules capable of handling automated invoicing, E-Invoice setups, IRN generation, and E-Way Bill provisioning.",
+      "Integrated end-to-end user subscription workflows bound with tax-inclusive pricing matrices and secure PayU gateway pipelines.",
+      "Optimized backend REST APIs and frontend state routing to realize a ~40% net improvement in application performance and reporting efficiencies."
+    ]
+  },
+  {
+    "title": "WMS / TMS / AMS / OMS – Enterprise Logistics Suite",
+    "type": "professional",
+    "timeline": "2026–Present",
+    "status": "Live",
+    "category": "Enterprise",
+    "icon": "🏭",
+    "demo": "",
+    "code": "",
+    "description": "Full-suite enterprise logistics platform covering Warehouse, Transport, Attendance, and Order Management for Radhakrishna Foodland Pvt. Ltd.",
+    "techs": [
+      "Django",
+      "FastAPI",
+      "React.js",
+      "Next.js",
+      "PostgreSQL",
+      "REST APIs",
+      "Docker",
+      "Firebase",
+      "WebSockets"
+    ],
+    "details": [
+      "Architected and delivered the Warehouse Management System (WMS) with bin-level putaway, picking, packing, and GRN workflows across multiple warehouse locations.",
+      "Built the Transport Management System (TMS) enabling end-to-end trip planning, driver assignment, route tracking, and delivery reconciliation.",
+      "Developed the Attendance Management System (AMS) supporting multi-location employee check-ins, shift scheduling, leave workflows, and compliance reporting.",
+      "Engineered the Order Management System (OMS) handling inbound/outbound order lifecycle, stock reservations, and fulfillment pipelines.",
+      "Designed scalable REST APIs using Django and FastAPI, consumed by cross-functional operations teams and external integrations.",
+      "Implemented real-time notification pipelines via Firebase FCM for operational alerts and status updates."
+    ]
+  },
+  {
+    "title": "Foundation AI – Customizable Analytics Dashboard",
+    "type": "professional",
+    "timeline": "2023–2024",
+    "status": "Completed",
+    "category": "AI/ML",
+    "icon": "🧠",
+    "demo": "",
+    "code": "",
+    "description": "Customizable drag-and-drop analytics dashboard engine with modular widgets, dynamic layouts, and real-time visualization components.",
+    "techs": [
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "React Grid Layout",
+      "Django",
+      "Node.js",
+      "Keycloak",
+      "Context API",
+      "ReTool",
+      "REST APIs",
+      "Jest",
+      "Enzyme"
+    ],
+    "details": [
+      "Analytics Engine: Designed and shipped an enterprise-scale, drag-and-drop dashboard engine driven by react-grid-layout, empowering clients to customize layouts and personalize workspace metrics.",
+      "Table Extraction & Review Interface: Built a heavy-duty, multi-tabbed table processing dashboard supporting cell-level data validation, row/column injections, and structural header mapping.",
+      "Layout Persistence: Synchronized localized user configurations with persistent Node.js/Django backend structures, introducing custom confidence-based highlighting and automated validation thresholds for document reviews.",
+      "Decoupled Architecture: Refactored the UI hierarchy to optimize component isolation, creating a highly modular visual library that successfully improved enterprise client adoption.",
+      "Testing Rigor: Implemented strict automated validation suites via Jest and Enzyme to guarantee interface consistency and drop regression defects."
+    ]
+  },
+  {
+    "title": "Get It Done – HRMS & Task Management System",
+    "type": "professional",
+    "timeline": "2022–2024",
+    "status": "Completed",
+    "category": "Web App",
+    "icon": "📋",
+    "demo": "https://gid2.artdexandcognoscis.com",
+    "code": "",
+    "description": "Full-fledged task tracking and human resource management platform featuring real-time push alerts and performance trend charts.",
+    "techs": [
+      "React.js",
+      "Django",
+      "Tailwind CSS",
+      "Firebase",
+      "Chart.js"
+    ],
+    "details": [
+      "Developed an end-to-end Human Resource Management System (HRMS) featuring agile Kanban task boards, employee review workflows, and gamified performance reward modules.",
+      "Integrated Firebase database pipelines to deliver real-time data synchronization, secure user authentication, and lightweight server infrastructure.",
+      "Structured instant push notification logic for assigning tasks, tracking critical project deadlines, and facilitating management approval matrices.",
+      "Built out specialized management dashboards tracking workforce output distributions, historical productivity charts, and quick-export operational data sheets."
+    ]
+  },
+  {
+    "title": "Inventory Management & Desktop Bridge App",
+    "type": "professional",
+    "timeline": "2025–2026",
+    "status": "Completed",
+    "category": "Desktop App",
+    "icon": "📦",
+    "demo": "",
+    "code": "",
+    "description": "Cross-platform desktop inventory bridge app connecting localized React interfaces with native OS filesystems and Tally ERP systems.",
+    "techs": [
+      "React.js",
+      "Tauri (Rust)",
+      "Django",
+      "Node.js",
+      "MongoDB",
+      "REST APIs"
+    ],
+    "details": [
+      "Engineered a cross-platform desktop application leveraging Tauri (Rust) to bridge a web-based React frontend with native OS capabilities, enabling offline-capable execution paths.",
+      "Expanded the core Finycs 'Items' module into a fully standalone desktop inventory suite equipped with advanced multi-tier filtering, structural categorization, and automated bulk item operations.",
+      "Created a real-time Bridge App designed to map and sync local Tally ERP records directly onto the Finycs cloud infrastructure.",
+      "Mitigated communication overhead by utilizing highly optimized API endpoints and state reconciliation algorithms, reducing data sync latency by ~35%."
+    ]
+  },
+  {
+    "title": "Indian Constitution and Polity",
+    "type": "professional",
+    "timeline": "2022–2024",
+    "status": "Completed",
+    "category": "Mobile App",
+    "icon": "⚖️",
+    "demo": "https://play.google.com/store/apps/details?id=com.cognoscis.constitution&pcampaignid=web_share",
+    "code": "",
+    "description": "Mobile app for exploring Indian Constitution with knowledge graph interface, personal note-taking, and offline SQLite storage.",
+    "techs": [
+      "React Native",
+      "Redux",
+      "SQLite"
+    ],
+    "details": [
+      "Designed and built a mobile knowledge graph interface focused on mapping structural constitutional hierarchies for seamless educational exploration.",
+      "Programmed client-facing interaction utilities, including rich-text document highlighting, flexible bookmarking, personal note-taking spaces, and community commentary forums.",
+      "Configured real-time external data feeds mapping contemporary political news and current affairs.",
+      "Crafted a localized database architecture inside SQLite to accommodate comprehensive offline operation coupled with Text-to-Speech (TTS) narration features."
+    ]
+  },
+  {
+    "title": "Finalyze – Financial Analysis Platform",
+    "type": "professional",
+    "timeline": "2022",
+    "status": "Completed",
+    "category": "Web App",
+    "icon": "📊",
+    "demo": "",
+    "code": "",
+    "description": "Financial analysis platform with interactive dashboards, corporate ratio evaluation, and multi-period comparisons.",
+    "techs": [
+      "React.js",
+      "Express.js",
+      "Chart.js",
+      "Highcharts.js",
+      "Material UI",
+      "Bootstrap",
+      "Styled-Components"
+    ],
+    "details": [
+      "Built dedicated financial analytics interfaces that map complex balance sheets, detailed P&L trajectories, and automated corporate ratio evaluations.",
+      "Programmed interactive multi-period performance comparisons and granular multi-variable data filters via Chart.js and Highcharts.js dashboards.",
+      "Successfully minimized standard business auditing and reporting overhead by 60% via real-time interactive charting spaces."
+    ]
+  },
+  {
+    "title": "Vintale UI – Figma-to-Code Frontend",
+    "type": "personal",
+    "timeline": "2025",
+    "status": "Completed",
+    "category": "Web App",
+    "icon": "🎨",
+    "demo": "https://vintale-ui.vercel.app",
+    "code": "https://github.com/Ajay-pal0/Vintale-ui",
+    "description": "Pixel-perfect, responsive frontend application built from a Figma prototype using Next.js, Tailwind CSS v4, and GSAP animations.",
+    "techs": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "GSAP",
+      "Vercel"
+    ],
+    "details": [
+      "Implemented a pixel-perfect, fully responsive interface directly from a Figma design prototype, matching all layout specifications and breakpoints.",
+      "Integrated GSAP (GreenSock Animation Platform) for smooth, prototype-matching animations — managing animation context via a custom useGSAP hook.",
+      "Built a modular component library (Header, Hero, Features, AnimatedSection) using TypeScript interfaces and Tailwind CSS v4 utility classes.",
+      "Deployed to Vercel with production-optimized build settings, ensuring fast load times and SEO-friendly HTML structure."
+    ]
+  },
+  {
+    "title": "Interactive Model Analysis Workbench",
+    "type": "personal",
+    "timeline": "2025",
+    "status": "Completed",
+    "category": "AI/ML",
+    "icon": "🔬",
+    "demo": "",
+    "code": "https://github.com/Ajay-pal0/interactive-model-analysis-workbench",
+    "description": "Jupyter-like interactive notebook platform for data scientists — create, manage, and run notebooks with real-time code execution and drag-and-drop cell management.",
+    "techs": [
+      "React.js",
+      "TypeScript",
+      "Zustand",
+      "Monaco Editor",
+      "Socket.io",
+      "react-window",
+      "react-beautiful-dnd"
+    ],
+    "details": [
+      "Built a high-fidelity Jupyter-inspired notebook interface enabling data scientists to create, delete, and switch between multiple notebooks seamlessly.",
+      "Implemented real-time code execution with streaming output via Socket.io WebSocket integration with a Jupyter backend.",
+      "Engineered drag-and-drop cell reordering using react-beautiful-dnd and virtualized cell rendering via react-window for performance with large notebooks.",
+      "Integrated Monaco Editor (VS Code's editor engine) for code cells with full syntax highlighting and TypeScript-powered type safety throughout."
+    ]
+  },
+  {
+    "title": "LLM Monitoring Dashboard",
+    "type": "personal",
+    "timeline": "2025",
+    "status": "Completed",
+    "category": "AI/ML",
+    "icon": "📡",
+    "demo": "",
+    "code": "https://github.com/Ajay-pal0/llm-monitoring-dashboard",
+    "description": "Real-time monitoring dashboard for Large Language Model (LLM) performance metrics, token usage, latency tracking, and API call analytics.",
+    "techs": [
+      "React.js",
+      "TypeScript",
+      "Chart.js",
+      "REST APIs"
+    ],
+    "details": [
+      "Designed and built a real-time monitoring interface for LLM API performance, tracking key metrics like token usage, response latency, and request throughput.",
+      "Implemented interactive charts and data visualizations to surface model performance trends and usage patterns over time.",
+      "Architected a clean, reusable component structure using React and TypeScript for maintainability and extensibility."
+    ]
+  },
+  {
+    "title": "Cake Ordering App",
+    "type": "personal",
+    "timeline": "2025",
+    "status": "Completed",
+    "category": "Web App",
+    "icon": "🎂",
+    "demo": "https://ajay-pal0.github.io/cake-Shop-Website/html/menu.html",
+    "code": "https://github.com/Ajay-pal0/cake-ordering-app",
+    "description": "Full-featured cake ordering web application with product catalog, cart management, and order flow built with Next.js App Router.",
+    "techs": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "details": [
+      "Built a modern e-commerce ordering experience for a cake shop using Next.js App Router with server-side rendering and client-side interactivity.",
+      "Implemented product catalog browsing, customization options, cart management, and a multi-step checkout order flow.",
+      "Leveraged Next.js font optimization with Geist font family for fast, visually consistent rendering across devices."
+    ]
+  },
+  {
+    "title": "Dragon Repeller – Browser RPG Game",
+    "type": "personal",
+    "timeline": "2025",
+    "status": "Completed",
+    "category": "Web App",
+    "icon": "🐉",
+    "demo": "https://ajay-pal0.github.io/dragon-repeller-game/",
+    "code": "https://github.com/Ajay-pal0/dragon-repeller-game",
+    "description": "Mini text-based RPG game built with vanilla HTML, CSS, and JavaScript. Fight monsters, earn gold, buy weapons, and defeat the dragon!",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "details": [
+      "Designed and implemented a complete game loop with state management — tracking player health, gold, XP, and equipped weapons in vanilla JavaScript.",
+      "Built a branching encounter system with multiple monster types, each with unique health and attack values, culminating in a final dragon boss fight.",
+      "Deployed as a static GitHub Pages site for instant browser-based play with no dependencies or build tools required."
+    ]
+  }
+]

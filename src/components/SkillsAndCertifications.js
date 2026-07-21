@@ -1,105 +1,105 @@
 import React from "react";
 import { useMousePosition } from "../hooks";
 import { FloatingParticles } from "./common";
-import { skillCategories, certificates } from "../constants/data";
-import { ExternalLink, Star, Zap, Trophy, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { skillsData, certificationsData } from "../data";
+import { ExternalLink, Star, Zap, Trophy, CheckCircle2, ArrowUpRight, Code, Laptop, Server, Database, Cloud, Network, Settings, HelpCircle } from "lucide-react";
 
-// Enhanced Section Title Component
-const SectionTitle = ({ title }) => (
-    <div className="text-center mb-20">
-        <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-indigo-100 to-cyan-100 rounded-2xl mb-6">
-            <Star className="w-8 h-8 text-indigo-600" />
+// Section Title Component
+const SectionTitle = ({ title, subtitle }) => (
+    <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center p-2.5 bg-indigo-50 dark:bg-indigo-950/40 rounded-full mb-4 border border-indigo-100 dark:border-indigo-800/20">
+            <Star className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
             {title}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            My technical expertise and professional certifications that drive innovation
+        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-semibold">
+            {subtitle}
         </p>
-        <div className="mt-8 w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-500 mx-auto rounded-full"></div>
+        <div className="mt-5 w-20 h-1.5 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-full mx-auto"></div>
     </div>
 );
-
 
 export const SkillsAndCertifications = () => {
     const mousePosition = useMousePosition('skills');
 
+    // Category icon mapper
+    const getCategoryIcon = (title) => {
+        switch (title) {
+            case 'Languages': return <Code className="w-5 h-5" />;
+            case 'Frontend': return <Laptop className="w-5 h-5" />;
+            case 'Backend': return <Server className="w-5 h-5" />;
+            case 'Databases': return <Database className="w-5 h-5" />;
+            case 'APIs & Protocols': return <Network className="w-5 h-5" />;
+            case 'DevOps & Cloud': return <Cloud className="w-5 h-5" />;
+            case 'Tools & Desktop': return <Settings className="w-5 h-5" />;
+            default: return <HelpCircle className="w-5 h-5" />;
+        }
+    };
+
+    // Issuer badge colours
+    const getIssuerStyle = (issuer) => {
+        switch (issuer) {
+            case 'Microsoft':
+                return { badge: 'bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-900/30', icon: 'from-blue-500 to-blue-600' };
+            case 'HackerRank':
+                return { badge: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-900/30', icon: 'from-emerald-500 to-teal-500' };
+            case 'TestDome':
+                return { badge: 'bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 border-purple-100 dark:border-purple-900/30', icon: 'from-purple-500 to-indigo-500' };
+            default:
+                return { badge: 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-900/30', icon: 'from-indigo-500 to-cyan-500' };
+        }
+    };
+
     return (
         <section
             id="skills"
-            className="relative py-20 sm:py-32 overflow-hidden"
+            className="relative py-20 sm:py-28 overflow-hidden bg-slate-50 dark:bg-[#080b11] transition-colors"
             style={{
                 background: `
-                radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, #f8fafc 0%, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%, #f8fafc 100%)
-              `
+                  radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.04) 0%, transparent 60%)
+                `
             }}
         >
-            {/* Enhanced animated background */}
-            <div className="absolute inset-0 pointer-events-none">
-                {/* Primary gradient blob */}
-                <div
-                    className="absolute top-20 left-10 w-96 h-96 rounded-full opacity-20 blur-3xl animate-pulse"
-                    style={{
-                        background: 'linear-gradient(45deg, #6366f1, #06b6d4, #8b5cf6)',
-                        animationDuration: '12s'
-                    }}
-                />
-
-                {/* Secondary gradient blob */}
-                <div
-                    className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-15 blur-2xl animate-pulse"
-                    style={{
-                        background: 'linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4)',
-                        animationDuration: '16s',
-                        animationDelay: '2s'
-                    }}
-                />
-
-                {/* Accent shapes */}
-                <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full opacity-10 blur-xl animate-pulse" style={{ animationDuration: '20s' }} />
-                <div className="absolute top-1/4 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-15 blur-lg animate-pulse" style={{ animationDuration: '14s' }} />
-            </div>
-
             <FloatingParticles />
 
             <div className="container mx-auto px-6 sm:px-8 relative z-10">
-                <SectionTitle title="Skills & Certifications" />
+                <SectionTitle
+                    title="Skills & Credentials"
+                    subtitle="My technical stack, languages, database tools, and professional certifications."
+                />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    {/* Skills Section */}
-                    <div className="space-y-8">
-                        <div className="text-center lg:text-left">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center lg:justify-start">
-                                <Zap className="w-6 h-6 mr-2 text-indigo-500" />
-                                Technical Skills
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+                    {/* Left: Skills Category Grid */}
+                    <div className="lg:col-span-6 space-y-6">
+                        <div className="text-left mb-6">
+                            <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 flex items-center">
+                                <Zap className="w-5 h-5 mr-2 text-indigo-500" />
+                                Technical Toolbox
                             </h3>
-                            <p className="text-gray-600">
-                                A comprehensive toolkit of technologies and frameworks I use to build exceptional applications
+                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+                                Modern frameworks, database systems, APIs, and devops tools I use to build scalable products.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {skillCategories.map((category, index) => (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {skillsData.categories.map((category, index) => (
                                 <div
                                     key={index}
-                                    className="group bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 transform hover:scale-105 border border-white/50 hover:border-indigo-200"
-                                    style={{ animationDelay: `${index * 100}ms` }}
+                                    className="glass-panel p-5 rounded-2xl hover:scale-[1.01] transition-transform"
                                 >
-                                    {/* Category header */}
-                                    <div className="flex items-center space-x-3 mb-4">
-                                        <div className="p-2 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-xl text-white">
-                                            <category.icon className="w-5 h-5" />
+                                    <div className="flex items-center space-x-3 mb-4 text-slate-800 dark:text-slate-200">
+                                        <div className="p-2.5 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl">
+                                            {getCategoryIcon(category.title)}
                                         </div>
-                                        <h4 className="text-lg font-bold text-gray-900">{category.title}</h4>
+                                        <h4 className="font-extrabold text-sm sm:text-base">{category.title}</h4>
                                     </div>
-
-                                    {/* Skills list */}
                                     <div className="flex flex-wrap gap-2">
-                                        {category.skills.map((skill, skillIndex) => (
+                                        {category.skills.map((skill, sIdx) => (
                                             <span
-                                                key={skillIndex}
-                                                className="px-3 py-1 bg-gradient-to-r from-indigo-100 to-cyan-100 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-200 hover:from-indigo-200 hover:to-cyan-200 transition-colors cursor-default"
+                                                key={sIdx}
+                                                className="px-3 py-1 text-xs font-semibold bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200/10 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 rounded-lg hover:border-slate-400 dark:hover:border-slate-700 transition-colors"
                                             >
                                                 {skill}
                                             </span>
@@ -110,93 +110,92 @@ export const SkillsAndCertifications = () => {
                         </div>
                     </div>
 
-                    {/* Certifications Section */}
-                    <div className="space-y-8">
-                        <div className="text-center lg:text-left">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center lg:justify-start">
-                                <Trophy className="w-6 h-6 mr-2 text-indigo-500" />
-                                Certifications
+                    {/* Right: Certifications list */}
+                    <div className="lg:col-span-6 space-y-6">
+                        <div className="text-left mb-6">
+                            <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 flex items-center">
+                                <Trophy className="w-5 h-5 mr-2 text-indigo-500" />
+                                Professional Certifications
                             </h3>
-                            <p className="text-gray-600">
-                                Professional certifications that validate my expertise and commitment to continuous learning
+                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+                                Verified certifications validating programming skills, frameworks, databases, and APIs.
                             </p>
                         </div>
 
-                        <div className="space-y-4">
-                            {certificates.map((cert, index) => (
-                                <div
-                                    key={index}
-                                    className="group bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 transform hover:scale-105 border border-white/50 hover:border-indigo-200"
-                                    style={{ animationDelay: `${index * 100}ms` }}
-                                >
-                                    <div className="flex items-start space-x-4">
-                                        {/* Certificate icon */}
-                                        <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-xl flex items-center justify-center text-white">
-                                                {cert.icon}
+                        <div className="space-y-3 max-h-[520px] overflow-y-auto pr-1 custom-scrollbar">
+                            {certificationsData.map((cert, index) => {
+                                const style = getIssuerStyle(cert.issuer);
+                                return (
+                                    <div
+                                        key={index}
+                                        className="glass-panel p-4 rounded-2xl hover:scale-[1.01] transition-transform border border-slate-200/20 dark:border-slate-800/40"
+                                    >
+                                        <div className="flex items-start gap-3 text-left">
+                                            {/* Issuer icon */}
+                                            <div className={`p-2.5 bg-gradient-to-tr ${style.icon} rounded-xl text-white shrink-0 mt-0.5`}>
+                                                <Trophy className="w-4 h-4" />
                                             </div>
-                                        </div>
-
-                                        {/* Certificate details */}
-                                        <div className="flex-1 min-w-0">
-                                            <h4 className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                                                {cert.title}
-                                            </h4>
-                                            <p className="text-gray-600 text-sm mb-2">{cert.issuer}</p>
-                                            <div className="flex items-center justify-between">
-                                                <span className="text-sm text-gray-500">{cert.date}</span>
-                                                {cert.link && (
+                                            <div className="flex-1 min-w-0">
+                                                <h4 className="font-extrabold text-sm text-slate-800 dark:text-slate-100 leading-snug">
+                                                    {cert.title}
+                                                </h4>
+                                                <div className="flex flex-wrap items-center gap-2 mt-1.5">
+                                                    {/* Issuer badge */}
+                                                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold border ${style.badge}`}>
+                                                        {cert.issuer}
+                                                    </span>
+                                                    <span className="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">{cert.date}</span>
+                                                </div>
+                                                {/* Credential ID */}
+                                                {cert.credentialId && (
+                                                    <p className="text-[9px] text-slate-400 dark:text-slate-600 mt-1 font-mono truncate">
+                                                        ID: {cert.credentialId}
+                                                    </p>
+                                                )}
+                                            </div>
+                                            {/* Verify / Earned */}
+                                            <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
+                                                {cert.link ? (
                                                     <a
                                                         href={cert.link}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="flex items-center space-x-1 text-indigo-600 hover:text-indigo-700 transition-colors"
+                                                        className="flex items-center text-[10px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline gap-0.5"
                                                     >
-                                                        <span className="text-sm font-medium">View</span>
-                                                        <ExternalLink className="w-4 h-4" />
+                                                        Verify <ExternalLink size={10} />
                                                     </a>
+                                                ) : (
+                                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                                                        Earned
+                                                    </span>
                                                 )}
+                                                <CheckCircle2 size={14} className="text-emerald-500" />
                                             </div>
                                         </div>
-
-                                        {/* Status indicator */}
-                                        <div className="flex-shrink-0">
-                                            <CheckCircle2 className="w-6 h-6 text-green-500" />
-                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
 
-                        {/* Call to Action */}
-                        <div className="bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-3xl p-6 text-white text-center">
-                            <h4 className="text-xl font-bold mb-2">Ready to Learn More?</h4>
-                            <p className="text-indigo-100 mb-4">
-                                I'm constantly expanding my skill set and staying updated with the latest technologies
+                        {/* Professional CTA block */}
+                        <div className="bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-3xl p-6 shadow-xl text-white text-left relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-xl rounded-full" />
+                            <h4 className="text-lg font-bold mb-2">Need a tailored skill set?</h4>
+                            <p className="text-xs text-indigo-100 leading-relaxed mb-4 font-semibold">
+                                I am highly adaptable and enjoy diving into new tech ecosystems to resolve operational issues or design clean architectures.
                             </p>
                             <a
                                 href="#contact"
-                                className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-2xl text-white font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                                className="inline-flex items-center px-5 py-2.5 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-xl text-white text-xs font-bold transition-all hover:scale-105"
                             >
-                                Let's Discuss Your Project
-                                <ArrowUpRight className="ml-2 w-4 h-4" />
+                                Let's get in touch
+                                <ArrowUpRight className="ml-2 w-3.5 h-3.5" />
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
-
-            <style jsx>{`
-              @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                25% { transform: translateY(-10px) rotate(90deg); }
-                50% { transform: translateY(-20px) rotate(180deg); }
-                75% { transform: translateY(-10px) rotate(270deg); }
-              }
-              .animate-float {
-                animation: float 8s ease-in-out infinite;
-              }
-            `}</style>
         </section>
     );
 };

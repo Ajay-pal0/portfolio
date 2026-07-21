@@ -1,0 +1,32 @@
+{
+  "categories": [
+    {
+      "title": "Languages",
+      "skills": ["Python", "JavaScript (ES6+)", "HTML5", "CSS3", "Rust", "C++", "Java"]
+    },
+    {
+      "title": "Frontend",
+      "skills": ["React.js", "Next.js", "React Native", "Redux", "Tailwind CSS", "Material UI", "HTML5/CSS3"]
+    },
+    {
+      "title": "Backend",
+      "skills": ["Django", "FastAPI", "Node.js", "Express.js"]
+    },
+    {
+      "title": "Databases",
+      "skills": ["PostgreSQL", "MySQL", "MongoDB", "SQLite"]
+    },
+    {
+      "title": "APIs & Protocols",
+      "skills": ["REST APIs", "WebSockets", "GraphQL", "Firebase", "Payment Integration"]
+    },
+    {
+      "title": "DevOps & Cloud",
+      "skills": ["AWS (EC2, S3)", "Docker", "Git/GitHub", "CI/CD (GitHub Actions)"]
+    },
+    {
+      "title": "Tools & Desktop",
+      "skills": ["Tauri", "Webpack", "npm / yarn", "Jest", "Keycloak", "Highcharts", "Chart.js"]
+    }
+  ]
+}

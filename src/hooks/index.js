@@ -6,3 +6,4 @@ export { useProjectFilter } from './useProjectFilter';
 export { useContactForm } from './useContactForm';
 export { useScrollToSection } from './useScrollToSection';
 export { useActiveSection } from './useActiveSection';
+export { useTheme } from './useTheme';

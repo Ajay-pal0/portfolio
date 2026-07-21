@@ -8,8 +8,9 @@ export const useAnimatedCounter = (endValue, duration = 2000) => {
     useEffect(() => {
         if (!hasIntersected) return;
 
-        const numericValue = parseFloat(endValue.replace(/\D/g, ''));
-        const suffix = endValue.replace(/\d/g, '');
+        const endStr = String(endValue);
+        const numericValue = parseFloat(endStr.replace(/\D/g, '')) || 0;
+        const suffix = endStr.replace(/\d/g, '');
         const steps = 60;
         const increment = numericValue / steps;
         let current = 0;

@@ -9,6 +9,7 @@ const ContactSection = lazy(() => import("./components/ContactSection").then(m =
 const ProjectsSection = lazy(() => import("./components/ProjectsSection").then(m => ({ default: m.ProjectsSection })));
 const ExperienceSection = lazy(() => import("./components/ExperienceSection").then(m => ({ default: m.ExperienceSection })));
 const SkillsAndCertifications = lazy(() => import("./components/SkillsAndCertifications").then(m => ({ default: m.SkillsAndCertifications })));
+const TestimonialsSection = lazy(() => import("./components/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <ExperienceSection />
           <SkillsAndCertifications />
           <ProjectsSection />
+          <TestimonialsSection />
           <ContactSection />
         </Suspense>
       </main>
