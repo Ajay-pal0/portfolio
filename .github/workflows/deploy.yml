@@ -1,0 +1,51 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main          # Triggers on every push to main
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write     # Needed so the workflow can push to gh-pages branch
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js (matches your React scripts requirement)
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install all dependencies (uses package-lock.json for reproducibility)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build the production bundle
+      - name: Build React app
+        run: npm run build
+        env:
+          # Suppress the CI=true flag that treats warnings as errors
+          CI: false
+
+      # 5. Deploy the build/ folder to the gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          # Keep only the latest deploy commit on gh-pages (cleaner history)
+          force_orphan: true
+          # Prevent Jekyll processing (required for React routing)
+          enable_jekyll: false
+          commit_message: "Deploy: ${{ github.sha }} — ${{ github.event.head_commit.message }}"
